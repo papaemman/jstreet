@@ -1,0 +1,34 @@
+=============================
+Project Notes
+=============================
+
+// Get dataset //
+$ kaggle competitions download -c jane-street-market-prediction
+
+// How to create Virtual environment //
+$ python3.6 -m venv jstreet-venv
+
+
+// Save current state of modules versions //
+$ pip freeze > requirements.txt
+
+
+// Install modules with pip //
+$ pip install module_name
+$ pip list
+
+
+// Start jupyter-lab, jupyter-notebook //
+
+jupyter-notebook
+
+1. Run (remote) $ jupyter-notebook --no-browser --port=8886
+2. Run (local) $ ssh -N -f -L localhost:8888:localhost:8886 panagiotis.medoid@138.201.55.46
+3. Open in local browser localhost:8886 and enter token of host
+
+
+jupyter-lab
+
+1. Run (remote) $ jupyter-lab --no-browser --port=8886
+2. Run (local) $ ssh -N -f -L localhost:8888:localhost:8886 panagiotis.medoid@138.201.55.46
+3. Open in local browser localhost:8886 and enter token of host
