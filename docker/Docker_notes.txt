@@ -8,16 +8,35 @@ Why docker?
 - this is a code competition so I need to avoid the "works on my machine" problem
 
 
-Steps
+The sub-module .competitions is provided in compiled form (for obvious reasons).
+But it is compiled for x86, 64-bit, Linux GNU. 
+All other systems cannot read this file and will therefore raise a
+`ModuleNotFoundError: No module named 'janestreet.competition'`
+
+
+https://www.kaggle.com/c/jane-street-market-prediction/discussion/199214
+
+https://white-noise.xyz/2019/12/02/using-docker-to-run-kaggle-kernels-locally-on-your-linux-machine/
+
+https://hub.docker.com/r/kaggle/python/dockerfile
+
+-------------------------------------------------------------------------------
+
+// Steps //
 
 1. Install the docker community edition 
 
 2. Get kaggle docker image
+https://github.com/Kaggle/docker-python
+
+
+$ docker images
 $ docker pull gcr.io/kaggle-images/python:latest
 
 
 3. 
-$ docker run -it -v /home/myusername:/home/jovyan gcr.io/kaggle-images/python /bin/bash
+$ docker ps
+$ docker run -it -v /home/panagiotis.medoid/jstreet_docker:/home/jstreet gcr.io/kaggle-images/python /bin/bash
 
 
 4. Get the dataset using kaggle API
@@ -36,9 +55,27 @@ $ mkdir -p input
 $ kaggle competitions download -c jane-street-market-prediction -p input
 $ unzip -o input/*.zip -d input
 
+|- /Users/Johnny
+  |- kaggle
+    |- project 1
+      |- nbs
+        |- notebook1.pynb
+        |-notebook2.pynb
+      |- input
+        |- train.csv
+        |- test.csv
+    |- project 2
+      |- nbs
+        |- notebook1.pynb
+        |-notebook2.pynb
+      |- input
+        |- train.csv
+        |- test.csv        
+
+
 lastly you need to amend the PYTHONPATH environment variable so that you can import janestreet. 
 To do that you need something like export PYTHONPATH=$PYTHONPATH:$(pwd)/input. 
 It would be best to put this in .bashrc so it runs when you startup. Now you are at the Kaggle linux CLI and can wrote code in vim, emacs, whatever.
 Alternatively, if you use VS Code (I do not), there is great integration with docker.
 
- You can run VS Code on your local operating system, but develop inside the container. https://code.visualstudio.com/docs/remote/containers
+You can run VS Code on your local operating system, but develop inside the container. https://code.visualstudio.com/docs/remote/containers
