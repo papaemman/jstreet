@@ -3,8 +3,18 @@ TODO
 ===============
 
 
-- Create a simple complete Pipeline
+[X] Create a simple complete Pipeline
 
-- Setup ML experiment tracking process (wandb)
+[] How predict works? What is time-series API? What is janestreet generator?
 
-- Organize experiments
+[] Setup ML experiment tracking process (wandb)
+
+[] Organize experiments
+
+
+===============
+IDEAS
+===============
+
+
+XGBOOST DOCUMENTATION: https://xgboost.readthedocs.io/

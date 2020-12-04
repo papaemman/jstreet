@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "../jstreet-venv/bin/python3.6"
+    "python.pythonPath": "/opt/conda/bin/python",
+    "jupyter.jupyterServerType": "local"
 }
