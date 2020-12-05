@@ -2,14 +2,29 @@
 TODO
 ===============
 
+[X] Set up development environment 
 
-[X] Create a simple complete Pipeline
+- docker container on remote server 
+- VS code and Jupyter notebooks
+- create correct directory structure identical with kaggle environment
+- download datasets
+
+
+[X] Develop a simple end-to-end ML solution
+
+[] Create a simple end-to-end submission Pipeline
 
 [] How predict works? What is time-series API? What is janestreet generator?
 
+[] Implement evaluation metric
+
 [] Setup ML experiment tracking process (wandb)
 
-[] Organize experiments
+[] Setup Cross Validation scheme
+
+[] Run some experiments and evaluate them unsing CV
+
+[] Features Importance Analysis
 
 
 ===============
@@ -18,3 +33,11 @@ IDEAS
 
 
 XGBOOST DOCUMENTATION: https://xgboost.readthedocs.io/
+
+
+
+Correct Directory structure
+
+How to read datasets from kaggle notebook environment:
+
+test = pd.read_csv("../../kaggle/input/jane-street-market-prediction/example_test.csv")

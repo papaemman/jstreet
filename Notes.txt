@@ -5,30 +5,28 @@ Project Notes
 // Get dataset //
 $ kaggle competitions download -c jane-street-market-prediction
 
-// How to create Virtual environment //
-$ python3.6 -m venv jstreet-venv
+// Activate virtual environment //
+
+$ source /opt/conda/bin/activate
+$ conda activate base
 
 
 // Save current state of modules versions //
 $ pip freeze > requirements.txt
 
-
-// Install modules with pip //
+// Install new modules using pip, but don't update exchisting modules //
 $ pip install module_name
 $ pip list
 
 
-// Start jupyter-lab, jupyter-notebook //
+// Start jupyter-notebook //
 
-jupyter-notebook
+$ docker exec -ti jstreet-container bash
+$ jupyter-notebook --no-browser --ip=0.0.0.0 --port=8888 --allow-root
 
-1. Run (remote) $ jupyter-notebook --no-browser --port=8886
-2. Run (local) $ ssh -N -f -L localhost:8888:localhost:8886 panagiotis.medoid@138.201.55.46
-3. Open in local browser localhost:8886 and enter token of host
+Create ssh tunneling from local machine
+(local) $ ssh -N -f -L localhost:8888:172.17.0.2:8888 panagiotis.medoid@tiger.ngsqintl.com
 
+$ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' jstreet-container
 
-jupyter-lab
-
-1. Run (remote) $ jupyter-lab --no-browser --port=8886
-2. Run (local) $ ssh -N -f -L localhost:8888:localhost:8886 panagiotis.medoid@138.201.55.46
-3. Open in local browser localhost:8886 and enter token of host
+Open Jupyter in localhost:8888
