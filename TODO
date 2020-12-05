@@ -33,11 +33,3 @@ IDEAS
 
 
 XGBOOST DOCUMENTATION: https://xgboost.readthedocs.io/
-
-
-
-Correct Directory structure
-
-How to read datasets from kaggle notebook environment:
-
-test = pd.read_csv("../../kaggle/input/jane-street-market-prediction/example_test.csv")

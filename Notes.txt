@@ -5,14 +5,22 @@ Project Notes
 // Get dataset //
 $ kaggle competitions download -c jane-street-market-prediction
 
-// Activate virtual environment //
+// Directory structure //
 
+My directory structure isn't completely correct.
+
+How to read datasets?
+train = pd.read_csv("../input/jane-street-market-prediction/train.csv")
+
+
+// Activate virtual environment //
 $ source /opt/conda/bin/activate
 $ conda activate base
 
 
 // Save current state of modules versions //
 $ pip freeze > requirements.txt
+
 
 // Install new modules using pip, but don't update exchisting modules //
 $ pip install module_name

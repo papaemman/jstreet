@@ -128,8 +128,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Data directory
+# Data directories
 input/
+datasets/
 
 # Trained models directory
 models/
