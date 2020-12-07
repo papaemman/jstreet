@@ -1,0 +1,22 @@
+===============
+PACKAGES
+===============
+
+// Save current state of modules versions //
+$ pip freeze > requirements.txt
+
+
+// Install new modules using pip, but don't update exchisting modules //
+$ pip install module_name
+$ pip list
+
+
+
+================
+DOCUMENTATION
+================
+
+XGBOOST DOCUMENTATION: https://xgboost.readthedocs.io/
+
+LIGHTGBM
+

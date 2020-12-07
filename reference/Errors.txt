@@ -1,0 +1,73 @@
+===========================
+Common Errors and Solutions
+===========================
+
+----------------------------------------------------------------------------------------------------------------
+
+// ERROR 1 // 
+A new Docker image deployed to Kaggle, with different versions of critical modules.
+
+```
+The new Container Image (Dockerfile) from December 3, 2020
+gcr.io/kaggle-images/python@sha256:00a659cc16b91a6956ef066063a9083b6a70859e5882046f3251632f4927149e
+for python notebooks has version 0.90 of xgboost, which is a down grade from the last image
+gcr.io/kaggle-images/python@sha256:4f6e43acfca0480f0c0e8f3949c2998262cfb1d8e59b05142defc521478357fd 
+which has version 1.2.1 of xgboost. 
+The performance of 0.90 is worse, and produces different results than 1.2.1. 
+Any new notebook created will use the new image with 0.90. 
+To use the old image, one will have to fork an existing notebook that is using the earlier image.
+
+A quick look at the installed packages using
+>>> import pkg_resources
+>>> dists = [d for d in pkg_resources.working_set]
+I didn't find any commonly used machine learning/ data science packages that were also down graded. This is just a heads up in case you create a new notebook and get different results and or performance when using xgboost or any other package.
+
+EDIT: Here is a link to a notebook with the old image
+https://www.kaggle.com/sitaber/jane-street-docker-image-november-16-2020\
+```
+
+// SOLUTION 1 //
+
+1. Write tests to ensure that the imported modules have the correct (and same) version 
+   between my local develpoment enviroment and kaggle kernels.
+
+2. Write tests to ensure that loaded and produced datasets has the same dimensions, data types etc.
+   between my local develpoment enviroment and kaggle kernels.
+
+
+3. Compare my develpoment enviroment with kaggle submission notebook enviroment
+(The only acceptable difference is about jupyter related package)
+
+$ diff requirements.txt requirements_true.txt 
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+// ERROR 2 //
+Input file don't found.
+
+
+// SOLUTION 2 //
+
+Use relative paths to read datasets to be compatible with Kaggle Notebooks data structure
+>>> train = pd.read_csv("../input/jane-street-market-prediction/train.csv")
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+// ERROR 3 //
+VSCode can't connect to remote sercver
+
+// DEBUGGING STEPS //
+
+Test if I can connect from terminal
+$ ssh jupyter-conainer
+
+If I delete and recreate the docker container, then I will get a WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED. 
+
+Fix it using the provided command to remove the previous ECDSA key and add a new one
+$ ssh-keygen -f "/home/user7/.ssh/known_hosts" -R "[138.201.55.46]:5000"
+$ ssh jstreet_container 
+
+
+--------------------------------------------------------------------------------------------------------------------------------

@@ -4,19 +4,31 @@ TODO
 
 [X] Set up development environment 
 
-- docker container on remote server 
-- VS code and Jupyter notebooks
-- create correct directory structure identical with kaggle environment
-- download datasets
+- Docker container on remote server 
+- Local VScode and Jupyter notebooks with access in docker container running on remote server
+- Create correct directory structure identical with kaggle environment
+- Download dataset
 
 
 [X] Develop a simple end-to-end ML solution
 
+
+[] -----Make a simple submission from local development enviroment-----7
+This is a Code competition!
+This can't be accomplished, because for this competition the submission must be done from Kaggle Notebooks 
+
+[] Understand prediction process
+- How predict works? What is time-series API? What is janestreet generator?
+
 [] Create a simple end-to-end submission Pipeline
 
-[] How predict works? What is time-series API? What is janestreet generator?
+- Add time counter fot submission using time series API.
+- print counter
+- What is the required time?
 
 [] Implement evaluation metric
+https://www.kaggle.com/c/jane-street-market-prediction/discussion/201257
+
 
 [] Setup ML experiment tracking process (wandb)
 
@@ -31,5 +43,14 @@ TODO
 IDEAS
 ===============
 
+- How can I use the features.csv dataset?
 
-XGBOOST DOCUMENTATION: https://xgboost.readthedocs.io/
+- How can I use lag features? Make a simple example.
+
+- How can I make a new submission using a pre-trained model?
+
+
+
+
+
+
