@@ -142,3 +142,14 @@ train = pd.read_csv("../input/jane-street-market-prediction/train.csv")
 
 Open Jupyter Notebook in `localhost:8888` from webrowser.
 ```
+
+<br>
+
+---
+
+## Tests
+
+Run unit tests using the following command
+```
+$ python src/tests.py
+```

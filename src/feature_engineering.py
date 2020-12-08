@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 def feature_engineering(df: pd.DataFrame) -> pd.DataFrame:
 
     """
@@ -13,7 +12,7 @@ def feature_engineering(df: pd.DataFrame) -> pd.DataFrame:
     :rtype: pd.DataFrame
     """
 
-
+    
     return df
 
 
